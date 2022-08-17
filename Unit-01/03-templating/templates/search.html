@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block head %}
+Search
+{% endblock %}
+{% block content %}
+<form action="http://localhost:5000/results" method="'POST">
+    <input name="keyword" type="text">
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

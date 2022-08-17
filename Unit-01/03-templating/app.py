@@ -1,4 +1,6 @@
 from flask import Flask, render_template,redirect, url_for, request
+import requests, re
+from bs4 import BeautifulSoup as bs
 
 app = Flask(__name__)
 #part1
@@ -31,10 +33,24 @@ def maths():
         return redirect(url_for(request.form['calculation'],num1=request.form['num1'],num2=request.form['num2']))
     else:
         return redirect(url_for('calculate'))
-        
+
 @app.route('/calculate',methods=['POST','GET'])
 def calculate():
     return render_template('calc.html')
+
+#part 3
+
+@app.route('/')
+def search():
+    return render_template('search.html')
+
+@app.route('/results/')
+def results():
+    keyword = request.args.get('keyword')
+    resp = requests.get(url='https://news.google.com')
+    soup = bs(resp.content,'html.parser')
+    headlines = soup.find_all(class_ = 'DY5T1d RZIKme',string = re.compile(keyword))
+    return render_template('results.html',headlines=headlines)
 
 if __name__=='__main__':
     app.run(debug=True)

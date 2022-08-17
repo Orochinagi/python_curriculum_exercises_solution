@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block head %}
+Results
+{% endblock %}
+{% block content %}
+<ol>
+{% for headline in headlines %}
+<li><a href=https://news.google.com/{{headline.get('href')}}>{{headline.text}}</a></li>
+{% endfor %}
+</ol>
+{% endblock %}
