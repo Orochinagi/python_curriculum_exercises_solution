@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+Snacks
+{% endblock %}
+{% block content %}
+<h2>Snacks List</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Kind</th>
+    </tr>
+    {% for snack in snacks %}
+    <tr>
+        <td>{{snack[0]}}</td>
+        <td>{{snack[1]}}</td>
+        <td>{{snack[2]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
