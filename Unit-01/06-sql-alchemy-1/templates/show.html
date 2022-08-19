@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block head %}
+{{snack.name}}
+{% endblock %}
+
+{% block content %}
+<h1>Here we have more information about the snack</h1>
+<p>The name of the snack is {{snack.name}} and its type is {{snack.kind}}</p>
+{% endblock %}
