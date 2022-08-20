@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block head %}EDIT{% endblock %}
+{% block content %}
+<form action="?method=PATCH&uid={{uid}}&mid={{mid}}" method="POST">
+    <textarea name="content" rows="10" cols="50"></textarea>
+    <div><input type="submit" value="Update Message"></div>
+</form>
+<form action="?method=DELETE" method="POST">
+    <input type="submit" value="Delete Message">
+</form>
+{% endblock %}

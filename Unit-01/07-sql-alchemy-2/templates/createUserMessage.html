@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block head %}NEW MESSAGE {% endblock %}
+{% block content %}
+<form action="{{url_for('show_user_messages',uid=uid)}}" method="POST">
+    <textarea name="content" rows="10" cols="50"></textarea>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
