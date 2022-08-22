@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head %}
+USERS
+{% endblock %}
+{% block content %}
+<table border="1">
+    <tr>
+        <th>User ID</th>
+        <th>Mesasage ID</th>
+        <th>Content</th>
+    </tr>
+    {% for message in messages %}
+    <tr>
+        <td>{{message.uid}}</td>
+        <td>{{message.id}}</td>
+        <td>{{message.content}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

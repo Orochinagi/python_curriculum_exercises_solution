@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head %}NEW MESSAGE {% endblock %}
+{% block content %}
+<form action="{{url_for('show_user_messages',uid=uid)}}" method="POST">
+    <p>
+        {{form.content.label}}
+        {{form.content(rows='10',cols='50')}}
+        {% if form.content.errors %}
+        <span>
+            {% for error in form.content.error %}
+                {{error}}
+            {% endfor %}
+        </span>
+        {% endif %}
+    </p>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

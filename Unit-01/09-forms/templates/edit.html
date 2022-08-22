@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block head %}EDIT{% endblock %}
+{% block content %}
+<form action="?method=PATCH" method="POST">
+    <input type="text" name="fname" placeholder="First Name">
+    <input type="text" name="lname" placeholder="Last Name">
+    <div><input type="submit" value="Update User"></div>
+</form>
+<form action="?method=DELETE" method="POST">
+    <input type="submit" value="Delete User">
+</form>
+{% endblock %}
