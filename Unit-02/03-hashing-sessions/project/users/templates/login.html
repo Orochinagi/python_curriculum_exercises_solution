@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}  
+{% if messages %}  
+      {% for message in messages %}  
+           <p>{{ message }}</p>  
+      {% endfor %}  
+{% endif %}  
+{% endwith %}  
+<form action="" method="POST">
+    {{form.csrf_token}}
+    <p>
+        {{form.username.label}}
+        {{form.username}}
+        {% if form.username.errors %}
+        <span>
+            {% for error in form.username.errors %}
+                {{error}}
+            {% endfor %}
+        </span>
+        {% endif %}
+    </p>
+    <p>
+        {{form.password.label}}
+        {{form.password}}
+        {% if form.password.errors %}
+        <span>
+            {% for error in form.password.errors %}
+                {{error}}
+            {% endfor %}
+        </span>
+        {% endif %}
+    </p>
+    <input type="submit" value="Login">
+</form>
+{% endblock %}
