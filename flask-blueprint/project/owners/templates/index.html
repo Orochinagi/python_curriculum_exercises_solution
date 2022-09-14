@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for owner in owners %}
+    <p>
+        {{owner.first_name}} {{owner.last_name}}
+        <br>
+    </p>
+{% endfor %}
+
+{% endblock %}

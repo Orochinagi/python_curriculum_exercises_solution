@@ -3,6 +3,8 @@ from project.models import Users
 from flask import redirect, render_template, url_for, Blueprint, request, flash, session
 from project.users.form import SignupForm, LoginForm
 from project import bcrypt
+import jwt
+from functools import wraps
 users_bp = Blueprint(
     'users',
     __name__,
